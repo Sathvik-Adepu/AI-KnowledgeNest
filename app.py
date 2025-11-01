@@ -2,6 +2,7 @@ import os
 import uuid
 import re
 from flask import Flask, request, jsonify, render_template, session
+from flask_cors import CORS
 from pymongo import MongoClient
 from utils.file_extractors import extract_text_from_file
 from utils.perplexity_api import call_perplexity_api_with_context, call_perplexity_api_with_messages
