@@ -11,7 +11,7 @@ from utils.quiz_feedback import get_quiz_feedback
 app = Flask(__name__)
 CORS(app,
      supports_credentials=True,
-     origins=["http://localhost:5173", "https://ai-knowledgenest.vercel.app"],  # frontend URLs
+     origins=["https://hackwave-lemon.vercel.app", "https://ai-knowledgenest.vercel.app"],  # frontend URLs
      methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
      allow_headers=["Content-Type", "Authorization"])
 app.secret_key = os.getenv("FLASK_SECRET_KEY", "your_secret_key_here")
