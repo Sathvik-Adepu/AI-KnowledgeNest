@@ -21,9 +21,7 @@ client = MongoClient(MONGO_URI)
 db = client['test']
 
 def get_user_id():
-    if 'user_id' not in session:
-        session['user_id'] = str(uuid.uuid4())
-    return session['user_id']
+    return 'ai-knowledge-bot'
 
 def store_uploaded_notes(user_id, notes_dict):
     db.notes.update_one({'user_id': user_id}, {'$set': {'notes': notes_dict}}, upsert=True)
