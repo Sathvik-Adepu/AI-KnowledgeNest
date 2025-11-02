@@ -9,7 +9,11 @@ from utils.perplexity_api import call_perplexity_api_with_context, call_perplexi
 from utils.quiz_feedback import get_quiz_feedback
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*", "allow_headers": "*", "expose_headers": "*", "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"]}})
+CORS(app,
+     supports_credentials=True,
+     origins=["http://localhost:5173", "https://ai-knowledgenest.vercel.app"],  # frontend URLs
+     methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+     allow_headers=["Content-Type", "Authorization"])
 app.secret_key = os.getenv("FLASK_SECRET_KEY", "your_secret_key_here")
 
 MONGO_URI = os.getenv("MONGO_URI")
